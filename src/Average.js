@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 
 const getAvg = (num) => {
   console.log("평균 계산 중");
@@ -11,16 +11,40 @@ const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
 
-  const onChange = (e) => {
+  //   const onChange = (e) => {
+  //     setNumber(e.target.value);
+  //   };
+  const onChange = useCallback((e) => {
     setNumber(e.target.value);
-  };
-  const onClick = (e) => {
-    const nextList = list.concat(parseInt(number));
-    setList(nextList);
-    setNumber("");
-  };
+  }, []); //컴포넌트가 처음 랜더링될때만 함수 생성
+
+  //   const onClick = (e) => {
+  //     const nextList = list.concat(parseInt(number));
+  //     setList(nextList);
+  //     setNumber("");
+  //   };
+  const onClick = useCallback(
+    (e) => {
+      const nextList = list.concat(parseInt(number));
+      setList(nextList);
+      setNumber("");
+    },
+    [number, list]
+  ); //number 혹은 list만 바뀌었을때만 함수 생성
 
   const avg = useMemo(() => getAvg(list), [list]);
+
+  /**useCallback(fn, deps)은 useMemo(()=>fn, deps)와 같다 */
+  const t1 = useCallback(() => {
+    console.log("hello useCallback~");
+  }, []);
+
+  const t2 = useMemo(() => {
+    const fn = () => {
+      console.log("hello useMemo");
+    };
+    return fn;
+  }, []);
 
   return (
     <div>
@@ -44,6 +68,8 @@ const Average = () => {
           평균값 : <b>{avg}</b>
         </p>
       </div>
+      {t1()}
+      {t2()}
     </div>
   );
 };

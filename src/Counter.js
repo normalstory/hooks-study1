@@ -54,8 +54,7 @@ const Counter = () => {
       </div>
       <div>
         <br />
-        <h4>6. useMemo</h4>
-        <p></p>
+        <h4>6. useMemo() With useCallBack()</h4>
         <Average />
       </div>
     </div>
