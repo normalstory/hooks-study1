@@ -3,6 +3,7 @@ import Info from "./Info";
 import EffectTest from "./EffectTest";
 import ReducerTest from "./ReducerTest";
 import ReducerTest1 from "./ReducerTest1";
+import Average from "./Average";
 
 const Counter = () => {
   const [value, setValue] = useState(0);
@@ -50,6 +51,12 @@ const Counter = () => {
         <h4>5. useReducer-인풋상태 관리하기***</h4>
         <p></p>
         <ReducerTest1 />
+      </div>
+      <div>
+        <br />
+        <h4>6. useMemo</h4>
+        <p></p>
+        <Average />
       </div>
     </div>
   );
