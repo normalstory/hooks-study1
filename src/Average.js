@@ -9,7 +9,7 @@ const getAvg = (num) => {
 
 const Average = () => {
   const [list, setList] = useState([]);
-  const [number, setNumber] = useState();
+  const [number, setNumber] = useState("");
 
   const onChange = (e) => {
     setNumber(e.target.value);
@@ -26,7 +26,6 @@ const Average = () => {
     <div>
       <div>
         <input
-          type="text"
           value={number}
           onChange={onChange}
           placeholder="number.."
