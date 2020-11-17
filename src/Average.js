@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
 
 const getAvg = (num) => {
   console.log("평균 계산 중");
@@ -10,6 +10,7 @@ const getAvg = (num) => {
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+  const inputE1 = useRef(null);
 
   //   const onChange = (e) => {
   //     setNumber(e.target.value);
@@ -28,6 +29,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
+      inputE1.current.focus(); //useRef를 이용한 포커스 이동
     },
     [number, list]
   ); //number 혹은 list만 바뀌었을때만 함수 생성
@@ -53,7 +55,8 @@ const Average = () => {
           value={number}
           onChange={onChange}
           placeholder="number.."
-        ></input>
+          ref={inputE1}
+        />
         <button onClick={onClick}>등록</button>
       </div>
       <div>
