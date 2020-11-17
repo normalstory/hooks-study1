@@ -6,6 +6,7 @@ import ReducerTest1 from "./ReducerTest1";
 import Average from "./Average";
 import UseRefC1 from "./UseRefC1";
 import UseRefF1 from "./UseRefF1";
+import InfoWithCustomHook from "./InfoWithCustomHook";
 
 const Counter = () => {
   const [value, setValue] = useState(0);
@@ -65,6 +66,11 @@ const Counter = () => {
         <h4>7. useRef</h4>
         by class <UseRefC1 />
         by function <UseRefF1 />
+      </div>
+      <div>
+        <br />
+        <h4>8. custom hooks</h4>
+        <InfoWithCustomHook />
       </div>
     </div>
   );
