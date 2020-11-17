@@ -10,7 +10,7 @@ const getAvg = (num) => {
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
-  const inputE1 = useRef(null);
+  const inputE1 = useRef(null); //01 ref 변수 선언
 
   //   const onChange = (e) => {
   //     setNumber(e.target.value);
@@ -29,7 +29,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
-      inputE1.current.focus(); //useRef를 이용한 포커스 이동
+      inputE1.current.focus(); //useRef를 이용한 포커스 이동, ref변수를 current로 호출해서 사용
     },
     [number, list]
   ); //number 혹은 list만 바뀌었을때만 함수 생성

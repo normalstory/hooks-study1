@@ -4,6 +4,8 @@ import EffectTest from "./EffectTest";
 import ReducerTest from "./ReducerTest";
 import ReducerTest1 from "./ReducerTest1";
 import Average from "./Average";
+import UseRefC1 from "./UseRefC1";
+import UseRefF1 from "./UseRefF1";
 
 const Counter = () => {
   const [value, setValue] = useState(0);
@@ -54,8 +56,15 @@ const Counter = () => {
       </div>
       <div>
         <br />
-        <h4>6. useMemo() With useCallBack()</h4>
+        <h4>6. useMemo() With useCallBack() and useRef for focus</h4>
         <Average />
+      </div>
+
+      <div>
+        <br />
+        <h4>7. useRef</h4>
+        by class <UseRefC1 />
+        by function <UseRefF1 />
       </div>
     </div>
   );
